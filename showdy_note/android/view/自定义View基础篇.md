@@ -4,7 +4,7 @@
 
 * 1.状态栏区域:
 
-```
+```java
 		
 	//获取屏幕区域的宽高等尺寸获取
 	DisplayMetrics metrics = new DisplayMetrics();
@@ -16,7 +16,7 @@
 
 * 2. 标题栏区域:
 
-```
+```java
 	
 	//获取状态栏高度
 	Rect rect= new Rect();
@@ -26,8 +26,7 @@
 
 * 3. App应用区域(ActionBar区域+View布局区域):
 
-```
-
+```java
 	Rect rect = new Rect();
 	getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
 
@@ -35,7 +34,7 @@
 
 * 4. RootView布局区域:
 
-```
+```java
 
 	/View布局区域宽高等尺寸获取
 	Rect rect = new Rect();  
@@ -152,7 +151,7 @@
 > 用于实现View的弹性滑动.当使用View的scrollTo()和scrollBy()进行滑动,其过程是瞬间完成的,体验不好,可以使用Scroller来实现有过渡的滑动效果.
 
 * Scroller本身无法让View弹性滑动,需要和View的computeScroll()配合使用 
-	
+```java	
 		Scroller mScroller= new Scroller(this);
 		
 		private void smoothScrollTo(int destX,int desY){
@@ -168,4 +167,5 @@
 				scrollTo(mScrlloer.getCurrX(),mScroller.getCurrY());
 				postInvalidate();
 		}
+```
 #### ViewDragHelper:
