@@ -4,8 +4,7 @@
 * layout方法:
 	> View绘制时,会调用onLayout()方法来设置显示的位置,同样,也可以修改View的left,top,right,bottom四个属性来控制View的坐标.
 
-```
-
+```java
 	@override
 	public boolean onTouchEvent(MotionEvent ev){
 		int rawX=(int)ev.getRawX();
@@ -37,7 +36,7 @@
 * offsetLeftAndRight()与offsetTopAndBotton()方式
 	> 这两个方法其实就系统对上下左右移动API的封装,其本质还是完成View的重新布局,效果与layout()一样.
 
-```
+```java
 
 	//同时对left和right进行偏移
 	offsetLeftAndRight(offsetX);
@@ -49,7 +48,7 @@
 * LayoutParams
 	> LayoutParams保存了View的布局参数,通过改变LayoutParams来动态改变一个布局的位置参数,从而改变View的位置效果.通过LayoutParams方式改变View的布局,本质上是改变View的Margin属性,所以也可以通过改变MarginLayoutParams来实现.
 
-```
+```java
 	
 	LinnerLayout.LayoutParams params= (LinearLayout.LayoutParams)getLayoutParams();
 	params.leftMargin=getLeft()+offsetX;
@@ -70,7 +69,7 @@
 
 	*  如果要移动View,应该找到View所在ViewGroup,调用如下代码:
 
-	```
+	```java
 	
 		((View)getParent).scrollTo(x,y);
 	
@@ -105,7 +104,7 @@
 #### 外部拦截法:
 > 外部拦截法是指事件都先经过父容器的拦截处理,如果父容器需要此事件就去拦截,如果不需要就不拦截,外部拦截法需要重写父容器的`onInterceptTouchEvent()`方法,在内部做出相应的拦截即可.
 
-```
+```java
 	
 	public boolean onInterceptTouchEvent(MotionEvent ev){
 		boolean intercepted=false;
@@ -137,7 +136,7 @@
 #### 内部拦截法
 > 内部拦截法,指父容器不拦截任何事件,所有的事件都传递给子元素,如果子元素需要就消费事件,否则交给父容器处理,这种方式需要配合`requestDiasllowInterceptTouchEvent()`才能正常进行,伪代码如下:
 
-```
+```java
 	
 	public boolean onInterceptTouchEvent(MotionEvent ev){
 		boolean intercepted=false;
@@ -171,7 +170,7 @@
 
 除了子元素需要处理外,父元素也要做相应的处理,拦截除了ACTION_DOWN以外的其他事件,这样子元素才能调用`requestDiasllowInterceptTouchEvent(false)`时,父元素才能拦截所需的事件:
 
-```
+```java
 
 	public boolean onInterceptTouchEvent(MotionEvent ev){
 		if(evnet.getAction==MotionEvent.ACTION_DOWN){
