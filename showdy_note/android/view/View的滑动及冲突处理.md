@@ -2,7 +2,7 @@
 > 实现view的滑动,本质上说都是改变view的坐标,不管是哪种方式实现滑动,实现的基本思想是一致的,当触摸View时,系统记下当前触摸点的坐标,当手指移动时,系统记下移动后的触摸点坐标,获取滑动的偏移量,并通过偏移量来修改View的坐标,不断重复,实现滑动过程.
 
 * layout方法:
-	> View绘制时,会调用onLayout()方法来设置显示的位置,同样,也可以修改View的left,top,right,bottom四个属性来控制View的坐标.
+> View绘制时,会调用onLayout()方法来设置显示的位置,同样,也可以修改View的left,top,right,bottom四个属性来控制View的坐标.
 
 ```java
 	@override
@@ -34,7 +34,7 @@
 ```
 
 * offsetLeftAndRight()与offsetTopAndBotton()方式
-	> 这两个方法其实就系统对上下左右移动API的封装,其本质还是完成View的重新布局,效果与layout()一样.
+> 这两个方法其实就系统对上下左右移动API的封装,其本质还是完成View的重新布局,效果与layout()一样.
 
 ```java
 
@@ -46,7 +46,7 @@
 ```
 
 * LayoutParams
-	> LayoutParams保存了View的布局参数,通过改变LayoutParams来动态改变一个布局的位置参数,从而改变View的位置效果.通过LayoutParams方式改变View的布局,本质上是改变View的Margin属性,所以也可以通过改变MarginLayoutParams来实现.
+> LayoutParams保存了View的布局参数,通过改变LayoutParams来动态改变一个布局的位置参数,从而改变View的位置效果.通过LayoutParams方式改变View的布局,本质上是改变View的Margin属性,所以也可以通过改变MarginLayoutParams来实现.
 
 ```java
 	
@@ -64,7 +64,7 @@
 ```
 
 * scrollTo()与scrollBy()
-	> scrollTo()是指View的绝对坐标的移动,而ScrollBy则是View的相对坐标的移动.另外scrollTo()与scollBy()方法移动的仅仅是View的内容,而不是View本身,这点要注意.
+> scrollTo()是指View的绝对坐标的移动,而ScrollBy则是View的相对坐标的移动.另外scrollTo()与scollBy()方法移动的仅仅是View的内容,而不是View本身,这点要注意.
 
 
 	*  如果要移动View,应该找到View所在ViewGroup,调用如下代码:
