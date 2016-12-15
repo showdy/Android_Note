@@ -553,12 +553,12 @@ ViewGroup的layout方法实质还是还是调用了View的layout方法,并没有
 
 从View的draw()方法的源码可以看出,draw过程大概为如下几步:
 
-  `1. Draw the background`
-  `2. If necessary, save the canvas' layers to prepare for fading`
-  `3. Draw view's content`
-  `4. Draw children`
-  `5. If necessary, draw the fading edges and restore layers`
-  `6. Draw decorations (scrollbars for instance)` 
+ * `1. Draw the background`
+ * `2. If necessary, save the canvas' layers to prepare for fading`
+ * `3. Draw view's content`
+ * `4. Draw children`
+ * `5. If necessary, draw the fading edges and restore layers`
+ * `6. Draw decorations (scrollbars for instance)` 
 
 由于第二步和第五步非必须,可知道View的绘制过程就是如下几步:
 
