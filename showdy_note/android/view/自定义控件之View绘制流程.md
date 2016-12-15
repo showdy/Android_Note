@@ -9,7 +9,7 @@
 
 ViewRoot对应于`ViewRootImp`l类,他是连接`WindowManager`和`DecorView`的纽带,View绘制的三大流程均是通过ViewRoot来完成.在ActivityThread中,当Activity对象被创建,会将DecorView添加到Window中,同时会创建ViewRootImpl对象,并将ViewRootImpl对象和DecorView关联,如下代码:
 
-```
+```java
 
 	root=new ViewRootImpl(view.getContext(),display);
 	root.setView(view,wparams,panelParentView);
@@ -25,7 +25,7 @@ View的绘制流程是从ViewRoot的performTraversals()开始,经过measure,layo
 
 MeasureSpec代表一个32位的int值,高2为代表SpecMode,而后30代表SpecSize,SpecMode代表测量模式,SpecSize表示在某种测量模式下的规格大小,如MeasureSpec内部定义的常量:
 
-```
+```java
 	
 	private static final int MODE_SHIFT = 30;
     private static final int MODE_MASK  = 0x3 << MODE_SHIFT;
@@ -70,7 +70,7 @@ MeasureSpec中MeasureMode有三类:
 对于DecorView来说,ViewRootImpl中measureHierarchy()的有如下代码,展示了DecorViewd的MeasureSpce创建过程,其中desireWindowWidth和desiredWindowHeight为窗口的尺寸.
 
 
-```
+```java
 	
 	 childWidthMeasureSpec = getRootMeasureSpec(desiredWindowWidth, lp.width);
 	 childHeightMeasureSpec = getRootMeasureSpec(desiredWindowHeight, lp.height);
@@ -80,7 +80,7 @@ MeasureSpec中MeasureMode有三类:
 
 接着再看,getRootMeasureSpec方法实现:
 
-```
+```java
 
 	private static int getRootMeasureSpec(int windowSize, int rootDimension) {
         int measureSpec;
@@ -113,7 +113,7 @@ DecorView的MeasureSpec就确定了,根据其LayoutParams中的宽高参数来�
 
 对于普通View来说,这里指我们布局中的View,View的measure过程由ViewGroup传递而来,先看ViewGroup的measureChildWidthMargins():
 
-```
+```java
 
     protected void measureChildWithMargins(View child,
             int parentWidthMeasureSpec, int widthUsed,
@@ -134,7 +134,7 @@ DecorView的MeasureSpec就确定了,根据其LayoutParams中的宽高参数来�
 
 在对子元素measure前,会通过getChildMeasureSpec得到子元素的MeasureSpec,从代码来看,子元素的MeasureSpec和父容器的MeasureSpec和自身的LayoutParams有关,此外还和View的margins和padding有关.
 
-```
+```java
 
 	public static int getChildMeasureSpec(int spec, int padding, int childDimension) {
         int specMode = MeasureSpec.getMode(spec);
@@ -209,7 +209,7 @@ DecorView的MeasureSpec就确定了,根据其LayoutParams中的宽高参数来�
 
 其主要作用是根据父容器的MeasureSpec和自身LayoutParams确定子元素的MeasureSpec,参数中的padding指父容器的中已占空间大小,子元素可用大小为父容器的尺寸减去padding,具体如下代码:
 
-```
+```java
 
 	int specSize = MeasureSpec.getSize(spec);
     int size = Math.max(0, specSize - padding);	
@@ -227,7 +227,7 @@ View的流程主要是指measure,layout,draw三大流程.
 #### measure
 measure过程要分情况来看,如果是view,那么通过measure方法即可完成其测量过程,如果是ViewGroup,除了完成自己的测量过程外,还会去遍历调用所有子元素的measure方法,各个元素再递归去执行这个流程.首先看View的测量过程:View的measure()为final,子类不能重写,在View内部会调用View的onMeasure(),因此这需要看onMeausre()即可:
 
-```
+```java
 
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec),
@@ -238,7 +238,7 @@ measure过程要分情况来看,如果是view,那么通过measure方法即可完
 
 再看getDefaultSize(),逻辑很简单,只需要看EXACTLY和AT_MOST,简单理解,getDefaultSize()返回的就是measureSpec中的specSize.
 
-```
+```java
 
 	public static int getDefaultSize(int size, int measureSpec) {
         int result = size;
@@ -261,7 +261,7 @@ measure过程要分情况来看,如果是view,那么通过measure方法即可完
 
 至于UNSPECIFIED这种情况,一般用于系统内部测量,看下getSuggestedMinimumWidht()方法:
 
-```
+```java
 
 	protected int getSuggestedMinimumWidth() {
         return (mBackground == null) ? mMinWidth : max(mMinWidth, mBackground.getMinimumWidth());
@@ -271,7 +271,7 @@ measure过程要分情况来看,如果是view,那么通过measure方法即可完
 
 从代码可以看出,如果View没有设置背景,那么View的宽度为mMinWidth,即为andriod:minWidth属性所指的值,默认为0;如果View设置了背景,则为背景的实际宽度,从下面代码可以看出:
 
-```
+```java
 
 	public int getMinimumWidth() {
         final int intrinsicWidth = getIntrinsicWidth();
@@ -283,7 +283,7 @@ measure过程要分情况来看,如果是view,那么通过measure方法即可完
 
 对于ViewGroup来说,除了完成自身的measure过程外,还要遍历所有子元素measure(),各个子元素再递归下去,和View不同的是,ViewGroup是个抽象类,没有重写View的onMeasure(),但提供了一个measureChild()方法:
 
-```
+```java
 
     protected void measureChildren(int widthMeasureSpec, int heightMeasureSpec) {
         final int size = mChildrenCount;
@@ -320,7 +320,7 @@ ViewGroup并没有定义其测量的具体过程,因为ViewGroup是个抽象类.
 
 * **`Activity/View#onWindowFocusChanged`**
 	
-	```
+	```java
 	
 		public void onWindowFoucusChanged(boolean hasFocus){
 			super.onWindowFocusChanged(hasFocus);
@@ -334,7 +334,7 @@ ViewGroup并没有定义其测量的具体过程,因为ViewGroup是个抽象类.
 
 *  **`view.post(runnable)`**
 
-	```
+	```java
 
 		protected void onStart(){
 			view.post(new Runnable(){
@@ -350,7 +350,7 @@ ViewGroup并没有定义其测量的具体过程,因为ViewGroup是个抽象类.
 
 * **`ViewTreeObserver`**
 
-	```
+	```java
 
 		protected void onStart(){
 			super.onstart();
@@ -369,7 +369,7 @@ ViewGroup并没有定义其测量的具体过程,因为ViewGroup是个抽象类.
 * view.measure(int widthMeasureSpec,int heightMeasureSpec)
 	> 这种方法不适合view的layoutParams为match_parent,因为构造此MeasureSpec需要知道parentSize,即父容器的剩余空间,这parentSize无法知道,所以不使用.当LayoutParams为wrap_content时,可以使用如下代码:
 
-	```
+	```java
 		
 		int widthMeasureSpec= MeasureSpec.makeMeasureSpec((1<<30)-1,MeasureSpec.AT_MOST);
 		int heightMeasureSpec= MeasureSpec.makeMeasureSpec((1<<30)-1,MeasureSpec.AT_MOST);
@@ -382,7 +382,7 @@ Layout的作用是ViewGroup确定子元素的位置,当ViewGroup位置确定后,
 
 先看ViewGroup的layout方法:
 
-```
+```java
 
 	@Override
     public final void layout(int l, int t, int r, int b) {
@@ -394,7 +394,7 @@ Layout的作用是ViewGroup确定子元素的位置,当ViewGroup位置确定后,
 ```
 ViewGroup的layout方法实质还是还是调用了View的layout方法,并没有实现,接着再来看看View的layout方法:
 
-```
+```java
 
 	public void layout(int l, int t, int r, int b) {
         ......
@@ -417,7 +417,7 @@ ViewGroup的layout方法实质还是还是调用了View的layout方法,并没有
 
 下面看看LinearLayout的onLayout方法实现:
 
-```
+```java
 	
  	@Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
@@ -517,7 +517,7 @@ ViewGroup的layout方法实质还是还是调用了View的layout方法,并没有
 ```
 其中setChildFrame()方法,而setChildFrame中的width和height实际上子元素的测量高宽:
 
-```
+```java
 
 	private void setChildFrame(View child, int left, int top, int width, int height) {        
         child.layout(left, top, left + width, top + height);
@@ -526,7 +526,7 @@ ViewGroup的layout方法实质还是还是调用了View的layout方法,并没有
 
 那么View的getMeasureWidth()和getWdith()到底有什么区别?
 
-```
+```java
 
 	public final int getMeasuredWidth() {
         return mMeasuredWidth & MEASURED_SIZE_MASK;
@@ -567,7 +567,7 @@ ViewGroup的layout方法实质还是还是调用了View的layout方法,并没有
 * 绘制children(dispatchDraw)
 * 绘制装饰(onDrawScollBars)
 
-```
+```java
 
  	public void draw(Canvas canvas) {
         final int privateFlags = mPrivateFlags;
@@ -622,7 +622,7 @@ ViewGroup的layout方法实质还是还是调用了View的layout方法,并没有
 
 View有个特殊方法setWillNotDraw:从源码中可以看出View不需要绘制任何内容,设置这个标记为true后,系统会做相应的优化,默认情况下,View没有启动这个标记,而ViewGroup默认情况启动这个标记,当自定义ViewGroup控件时,ViewGroup控件本身不具备绘制功能就可以开启这个标记进行后续优化.
 
-```
+```java
 
 	/**
      * If this view doesn't do any drawing on its own, set this flag to
