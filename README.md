@@ -1,7 +1,7 @@
 ## Java
 * [泛型--GenericType]
 * [反射--Reflect]
-* [注解--Anotation]
+* [注解--Anotation](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Annotation.md)
 * [枚举--Enum]
 * [Java8--Lambda表达式]
 * [Java8--时间API]
