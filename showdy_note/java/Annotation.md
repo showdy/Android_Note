@@ -3,22 +3,26 @@
 ###1.Annotation实例:
 
 * Override
-
-		@Override
-		public void onCreate(Bundle savedInstanceState);
+```java		
+	@Override
+	public void onCreate(Bundle savedInstanceState);
+```
 
 * Retrofit Annotation:
-		
-		@GET("/user/{username}")
-		User getUser(@Path("username") String username);
+```java	
+	@GET("/user/{username}")
+	User getUser(@Path("username") String username);
+```
 
 * ButterKnife Annotation
-		
-		@InjectView(R.id.user) EidtText username;
+```java		
+	@InjectView(R.id.user) EidtText username;
+```
 
 * ActiveAndroid Annotation
-		
-		@Column(name="Name")public String name;
+```java			
+	@Column(name="Name")public String name;
+```
 
 * Retrofit为符合RESTful规范的网络请求框架
 * ButterKnife为View及事件等依赖注入框架
@@ -35,7 +39,7 @@
 	* a.标记,用于告诉编译器一些信息
 	* b.编译时动态处理,如动态生成代码
 	* c.运行时动态处理,如得到注解信息
-	> 这里说的三个作用事件对应后面自定义Annotation时说的@Rentention三种值分别表示的Annotation
+-这里说的三个作用事件对应后面自定义Annotation时说的@Rentention三种值分别表示的Annotation
 
 
 ### 3.Annotation分类
@@ -59,7 +63,7 @@
 	* 注解类属性只允许 public & abstract 修饰符，默认为 public，不允许抛异常
 	* 注解类属性值可以使用default关键字定义默认值,如 String name() default "showdy";
 	* 当注解类只有一个属性value时,使用该注解类时,可以不用书写属性名,如Retrofit中注解的使用.
-		
+```java		
 			public @Interface MyAnnotation{
 				String name() default "showdy";
 				String[] images();
@@ -67,21 +71,22 @@
 				RententionPolicy rp(); //枚举+注解类型
 				Class clazz(); //class 类型
 			}
-
+```
 
 * 4.2调用
-
+```java	
 		public class App {
 		    @MethodInfo(author = “trinea.cn+android@gmail.com”,date = "2014/02/14",version = 2)
 		    public String getAppName() {
 		        return "trinea";
 		    }
 		}
+```
 	> 这里调用自定义Annotation--Mehtod的示例,MethoidInfo Annotation作用为给方法添加相关信息,包括author,date,verion.
 	
 
 * 4.3定义
-			
+```java				
 		@Documented
 		@Retention(RetentionPolicy.RUNTIME)
 		@Target(ElementType.METHOD)
@@ -94,7 +99,7 @@
 		
 		    int version() default 1;
 		}
-
+```
 * 4.4元Annotation
 
 	* @Documented 是否会保存到 Javadoc 文档中
@@ -108,13 +113,15 @@
 * 5.1 运行时 Annotation 解析
 
 	* (1) 运行时 Annotation 指 @Retention 为 RUNTIME 的 Annotation，可手动调用下面常用 API 解析
-	
+	```java	
 			method.getAnnotation(AnnotationName.class);
 			method.getAnnotations();
 			method.isAnnotationPresent(AnnotationName.class);
+	```
+	
 	> 其他 @Target 如 Field，Class 方法类似getAnnotation(AnnotationName.class) 表示得到该 Target 某个 Annotation 的信息，因为一个 Target 可以被多个 Annotation 修饰getAnnotations() 则表示得到该 Target 所有 AnnotationisAnnotationPresent(AnnotationName.class) 表示该 Target 是否被某个 Annotation 修饰
 	* (2) 解析示例如下：
-	
+		```java	
 			public static void main(String[] args) {
 			    try {
 			        Class cls = Class.forName("cn.trinea.java.test.annotation.App");
@@ -130,7 +137,8 @@
 			    } catch (ClassNotFoundException e) {
 			        e.printStackTrace();
 			    }
-			}	
+			}
+		```
 	>以之前自定义的 MethodInfo 为例，利用 Target（这里是 Method）getAnnotation 函数得到 Annotation 信息，然后就可以调用 Annotation 的方法得到响应属性值
 
 
@@ -140,7 +148,7 @@
 		* b. 重写其中的 process 函数
 		> 实际是编译器在编译时自动查找所有继承自 AbstractProcessor 的类，然后调用他们的 process 方法去处理
 	* (2) 假设 MethodInfo 的 @Retention 为 CLASS，解析示例如下：
-	
+	```java			
 			@SupportedAnnotationTypes({ "cn.trinea.java.test.annotation.MethodInfo" })
 			public class MethodInfoProcessor extends AbstractProcessor {
 			
@@ -156,6 +164,7 @@
 			        return false;
 			    }
 			}
+	```
 		* SupportedAnnotationTypes 表示这个 Processor 要处理的 Annotation 名字。
 		* process 函数中参数 annotations 表示待处理的 Annotations，参数 env 表示当前或是之前的运行环境
 		* process 函数返回值表示这组 annotations 是否被这个 Processor 接受，如果接受后续子的 rocessor 不会再对这个 Annotations 进行处理
@@ -164,11 +173,12 @@
 * 6.1 Annotation — Retrofit
 
 	* (1) 调用
-	
+	```java	
 			@GET("/users/{username}")
 			User getUser(@Path("username") String username);
+	```
 	* (2) 定义
-	
+	```java	
 			@Documented
 			@Target(METHOD)
 			@Retention(RUNTIME)
@@ -176,9 +186,11 @@
 			public @interface GET {
 			  String value();
 			}
+	```
+	
 		> 从定义可看出 Retrofit 的 Get Annotation 是运行时 Annotation，并且只能用于修饰 Method
 	* (3) 原理
-	
+	```java	
 			private void parseMethodAnnotations() {
 			    for (Annotation methodAnnotation : method.getAnnotations()) {
 			    Class<? extends Annotation> annotationType = methodAnnotation.annotationType();
@@ -192,25 +204,29 @@
 			    }
 			    ……
 			    }
-			}   
+			} 
+	```
+			
 	> RestMethodInfo.java 的 parseMethodAnnotations 方法如上，会检查每个方法的每个 Annotation， 看是否被 RestMethod 这个 Annotation 修饰的 Annotation 修饰，这个有点绕，就是是否被 GET、DELETE、POST、PUT、HEAD、PATCH 这些 Annotation 修饰，然后得到 Annotation 信息，在对接口进行动态代理时会掉用到这些 Annotation 信息从而完成调用。
 	
 * 6.2 Annotation — Butter Knife
 
 	* (1) 调用
-	
+	```java			
 			@InjectView(R.id.user) 
 			EditText username;
+	```
 	* (2) 定义
-	
+	```java	
 			@Retention(CLASS) 
 			@Target(FIELD)
 			public @interface InjectView {
 			  int value();
 			}
+	```
 		> 可看出 Butter Knife 的 InjectView Annotation 是编译时 Annotation，并且只能用于修饰属性
 	* (3) 原理
-	
+	```java	
 			@Override 
 			public boolean process(Set<? extends TypeElement> elements, RoundEnvironment env) {
 			    Map<TypeElement, ViewInjector> targetClassMap = findAndParseTargets(env);
@@ -232,23 +248,27 @@
 			
 			    return true;
 			}
+	```
+			
 		> ButterKnifeProcessor.java 的 process 方法如上，编译时，在此方法中过滤 InjectView 这个 Annotation 到 targetClassMap 后，会根据 targetClassMap 中元素生成不同的 class 文件到最终的 APK 中，然后在运行时调用 ButterKnife.inject(x) 函数时会到之前编译时生成的类中去找。 
 * 6.3 Annotation — ActiveAndroid
 
 	* (1) 调用
-	
+	```java			
 			@Column(name = “Name") 
 			public String name;
+	```
 	* (2) 定义
-	
+	```java
 			@Target(ElementType.FIELD)
 			@Retention(RetentionPolicy.RUNTIME)
 			public @interface Column {
 			  ……
 			}
+	```
 		> 可看出 ActiveAndroid 的 Column Annotation 是运行时 Annotation，并且只能用于修饰属性。
-	* (3) 原理
-	
+	* (3) 原java理
+	```java			
 			Field idField = getIdField(type);
 			mColumnNames.put(idField, mIdName);
 			
@@ -266,4 +286,5 @@
 			        mColumnNames.put(field, columnName);
 			    }
 			}
+		```
 		> TableInfo.java 的构造函数如上，运行时，得到所有行信息并存储起来用来构件表信息。
