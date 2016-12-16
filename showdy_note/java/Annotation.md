@@ -120,6 +120,7 @@
 	```
 	
 	> 其他 @Target 如 Field，Class 方法类似getAnnotation(AnnotationName.class) 表示得到该 Target 某个 Annotation 的信息，因为一个 Target 可以被多个 Annotation 修饰getAnnotations() 则表示得到该 Target 所有 AnnotationisAnnotationPresent(AnnotationName.class) 表示该 Target 是否被某个 Annotation 修饰
+	
 	* (2) 解析示例如下：
 		```java	
 			public static void main(String[] args) {
@@ -139,6 +140,7 @@
 			    }
 			}
 		```
+		
 	>以之前自定义的 MethodInfo 为例，利用 Target（这里是 Method）getAnnotation 函数得到 Annotation 信息，然后就可以调用 Annotation 的方法得到响应属性值
 
 
@@ -254,21 +256,21 @@
 * 6.3 Annotation — ActiveAndroid
 
 	* (1) 调用
-	```java			
+		```java			
 			@Column(name = “Name") 
 			public String name;
-	```
+		```
 	* (2) 定义
-	```java
+		```java
 			@Target(ElementType.FIELD)
 			@Retention(RetentionPolicy.RUNTIME)
 			public @interface Column {
 			  ……
 			}
-	```
+		```
 		> 可看出 ActiveAndroid 的 Column Annotation 是运行时 Annotation，并且只能用于修饰属性。
 	* (3) 原java理
-	```java			
+		```java			
 			Field idField = getIdField(type);
 			mColumnNames.put(idField, mIdName);
 			
