@@ -44,15 +44,15 @@
 
 ### 3.Annotation分类
 * 3.1标准注解:
-	*  Override, Deprecated,SuppressWarnnings;
-	> 标注Annotation是指java自带的几个Annotation,上面三个分别表示重写函数,不鼓励使用(有更好方式,使用有风险或者已不再维护),忽略某项warnning
+	* Override, Deprecated,SuppressWarnnings;
+	- 标注Annotation是指java自带的几个Annotation,上面三个分别表示重写函数,不鼓励使用(有更好方式,使用有风险或者已不再维护),忽略某项warnning
 	
 * 3.2元Annotation:
 	* @Retention @Target @Inherited @Documented
-	> 元注解是指用来定义Annotation的Annotation,在后面Annotation自定义部分会详细介绍含义
+	- 元注解是指用来定义Annotation的Annotation,在后面Annotation自定义部分会详细介绍含义
 
 * 3.3自定义Annotation
-	>自定义 Annotation 表示自己根据需要定义的 Annotation，定义时需要用到上面的元 Annotation这里是一种分类而已，也可以根据作用域分为源码时、编译时、运行时 Annotation，后面在自定义 Annotation 时会具体介绍
+	- 自定义 Annotation 表示自己根据需要定义的 Annotation，定义时需要用到上面的元 Annotation这里是一种分类而已，也可以根据作用域分为源码时、编译时、运行时 Annotation，后面在自定义 Annotation 时会具体介绍
 
 
 ### 4.自定义注解
