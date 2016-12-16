@@ -1,3 +1,14 @@
+## Java
+[泛型--GenericType]
+[反射--Reflect]
+[注解--Anotation]
+[枚举--Enum]
+[Java8--Lambda表达式]
+[Java8--时间API]
+[Java8--StreamAPI]
+
+
+## Android
 ###  Android自定义View篇
 * [自定义View--自定义基础](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/view/%E8%87%AA%E5%AE%9A%E4%B9%89View%E5%9F%BA%E7%A1%80%E7%AF%87.md)
 * [自定义View--View绘制的绘制流程](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/view/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6%E4%B9%8BView%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B.md)
