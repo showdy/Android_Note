@@ -1,11 +1,11 @@
 ## Java
-[泛型--GenericType]
-[反射--Reflect]
-[注解--Anotation]
-[枚举--Enum]
-[Java8--Lambda表达式]
-[Java8--时间API]
-[Java8--StreamAPI]
+* [泛型--GenericType]
+* [反射--Reflect]
+* [注解--Anotation]
+* [枚举--Enum]
+* [Java8--Lambda表达式]
+* [Java8--时间API]
+* [Java8--StreamAPI]
 
 
 ## Android
