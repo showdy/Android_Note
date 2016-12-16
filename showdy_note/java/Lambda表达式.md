@@ -3,12 +3,13 @@
 ### 学习lambda表达式前先看个例子
 
 * 输入1000到10000之间水仙花数?
+
 	```java		
       IntStream.range(1000,10000).filter(v->
 			v / 1000 * v / 1000 * v / 1000 + v / 100 * v / 100 * v / 100 + v / 10 * v / 10 * v / 10 == v 
     		).forEach(System.out::println);
-   	```
-	>上面的表达式中多处用到lamnda表达式以及Stream API,那么什么是lambda表达式?
+   	```	
+   >上面的表达式中多处用到lamnda表达式以及Stream API,那么什么是lambda表达式?
 
 ### 什么是lambda表达式?
 
@@ -39,7 +40,7 @@
 	* 如( final int x,int y)-> x+y; 不能写 (x,y)->x+y;或者(final x,y)-> x+y;
 * lamda表达式的实现体:
 	* 可以是代码块或者表达式
-  ```java	
+  	```java	
 	public class Lambda2 {
 	    public static void main(String[] args) {
 	        // lambda表达式可以复制给一个函数式接口
@@ -77,11 +78,11 @@
 	        int divide(final int x, int y);
 	    }
 	}
-```
+	```
 
 ### Lambda表达式的目标类型
 * Lambda表达式实际是一个函数式接口类型,但是并不知道到底是哪个函数式接口类型,只有在使用时,只有在使用时,编译器会根据环境推断出被期望的类型,即为目标类型.意味着同样的lambda表达式在不同的环境中可以拥有不同的类型.
-```java	
+	```java	
 		 public static void main(String[] args) {
 
 	        Addable a = (x, y) -> System.out.println();
@@ -96,7 +97,7 @@
 	    private static interface Outputable {
 	        void output(String x, String y);
 	    }
-
+	```
 * 赋值表达式中目标类型的推断:
 	* T t = <Lambda表达式>;
 	* 规则:
@@ -105,46 +106,43 @@
 		* lambda表达式的实现体返回值类型与T中方法返回值类型一致
 		* lambda表达式的实现体中抛出的任何受检异常都要与T中的抽象方法声明的异常一致,若抽象方法中没有异常声明会出现编译错误
 		
-```java
-	public static void main(String[] args) {    
-        //lambda表达式中不能抛出受检异常,但是对应的函数式接口中可以抛出
-        //lambda表达式中参数类型,以及实现体的返回值类型与声明的函数式接口中抽象方法保持一致.
-        Addable x = (a, b) -> a / b;
-    }
-    private static interface Addable {
-        int add(int a, int b) throws IOException;
-    }
-```
+		```java
+		   public static void main(String[] args) {    
+			//lambda表达式中不能抛出受检异常,但是对应的函数式接口中可以抛出
+			//lambda表达式中参数类型,以及实现体的返回值类型与声明的函数式接口中抽象方法保持一致.
+			Addable x = (a, b) -> a / b;
+		    }
+		    private static interface Addable {
+			int add(int a, int b) throws IOException;
+		    }
+		```
 
 * 方法重载: 当方法重载造成问题时:
-	
 	* 明确lambda表达式的参数类型,
 	* 使用类型的强制转换
 	* 不要直接传lambda表达式,而是先将其赋值给接口类型的变量,再将该变量传入方法.
-	
-```
-```java	
-	interface Outputable {
-	
-	    static void output(Lambda4.Addable add) {
-	    }
-	    
-	
-	    static void output(Lambda4.Addable2 add) {
-	    }
-	    
-	}
-	
-	
-	public class Lambda4 {
-	    public static void main(String[] args) {
-	        Addable add = (x, y) -> x + y;
+	```java	
+		interface Outputable {
 
-        	Outputable.output(add);
-        	Outputable.output((Addable2)(x, y) -> x + y);
-	}	
-        
-```
+		    static void output(Lambda4.Addable add) {
+		    }
+
+
+		    static void output(Lambda4.Addable2 add) {
+		    }
+
+		}
+
+
+		public class Lambda4 {
+		    public static void main(String[] args) {
+			Addable add = (x, y) -> x + y;
+
+			Outputable.output(add);
+			Outputable.output((Addable2)(x, y) -> x + y);
+		}	
+
+	```
 
 * lambda表达式使用场景:
 	* 赋值
