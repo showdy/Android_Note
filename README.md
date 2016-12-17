@@ -1,11 +1,17 @@
 ## Java
+### Java高新技术
 * [泛型--GenericType]
+  * [虚拟机中的泛型信息](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/%E5%8F%8D%E5%B0%84(%E4%BA%8C)%E4%B9%8B%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E6%B3%9B%E5%9E%8B%E7%B1%BB%E5%9E%8B%E4%BF%A1%E6%81%AF.md)
 * [反射--Reflect]
 * [注解--Anotation](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Annotation.md)
 * [枚举--Enum]
-* [Java8--Lambda表达式]
+* [Java8--Lambda表达式](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F.md)
 * [Java8--时间API]
 * [Java8--StreamAPI]
+
+### Java设计模式
+* [观察者模式](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F.md)
+
 
 
 ## Android
