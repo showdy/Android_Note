@@ -214,7 +214,7 @@ public abstract class DataSetObserver {
 ```
 
 * 具体观察者:PagerObserver使用在ViewPager中,是具体实现类:
-	```java			
+```java			
      private class PagerObserver extends DataSetObserver {
 		        @Override
 		        public void onChanged() {
