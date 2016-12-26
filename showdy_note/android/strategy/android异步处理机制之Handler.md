@@ -76,8 +76,8 @@
 			//将looper存储于ThreadLocal中
 	        sThreadLocal.set(new Looper(quitAllowed));
 	    }
-	```java 	
-
+	```
+	
 * looper.loop()
 	> 核心就不断从队列中取出消息,并处理消息, 如果队列中没有消息looper出现阻塞.
 	
