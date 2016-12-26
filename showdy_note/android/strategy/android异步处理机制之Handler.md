@@ -231,7 +231,7 @@ Android的主线程就是ActivityThread,入口方法main();通常在新打开一
 	
 	
 ### Handler内存泄露:
-	>This Handler class should be static or leaks might occur 。
+>  This Handler class should be static or leaks might occur 。
 
 * 确保class内部的handler不含有外部类的隐式引用 。 同一个线程下的handler共享一个looper对象，消息中保留了对handler的引用，只要有消息在队列中，那么handler便无法被回收，如果handler不是static那么使用Handler的Service和Activity就也无法被回收。这就可能导致内存泄露。
 * 官方推荐将handler设为static类，并在里面使用弱引用WeakReference
