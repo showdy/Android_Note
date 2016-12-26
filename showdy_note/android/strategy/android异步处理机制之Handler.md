@@ -9,10 +9,10 @@
 * ThreadLocal<T>
 
 ### Handler异步通信机制工作流程图
-![](img/handler_mechanic_flow.png)
+![](http://img.blog.csdn.net/20161226165230636?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2hvd2R5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 ### Handler.Looper.MessageQueue关系图:
-![](img/Handler_Looper_MessageQueue.png)
+![这里写图片描述](http://img.blog.csdn.net/20161226165318456?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2hvd2R5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 ### Handler核心类:
 * Handler:
@@ -44,7 +44,7 @@
 	```
 * handler处理消息:
 
-![](img/handler_dispatch_msg.png)
+![这里写图片描述](http://img.blog.csdn.net/20161226165337855?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2hvd2R5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 ```java    
 
