@@ -63,7 +63,7 @@
 ```
 
 ### Looper核心类:
-> 关联MessageQueue,每个Looper对象中都有一个MessageQueue用于存储消息, 关联一个ThreadLocal<Looper>用于存储当前线程的Looper对象.
+ Looper关联MessageQueue,每个Looper对象中都有一个MessageQueue用于存储消息, 关联一个ThreadLocal<Looper>用于存储当前线程的Looper对象.
 
 * looper.prepare()
 
@@ -76,13 +76,12 @@
 			//将looper存储于ThreadLocal中
 	        sThreadLocal.set(new Looper(quitAllowed));
 	    }
-	```
+ ```
 	
 * looper.loop()
-	> 核心就不断从队列中取出消息,并处理消息, 如果队列中没有消息looper出现阻塞.
 	
 ```java 
-
+ 		//核心就不断从队列中取出消息,并处理消息, 如果队列中没有消息looper出现阻塞.
 		public static void loop() {
 	        //.....
 	        for (;;) {
