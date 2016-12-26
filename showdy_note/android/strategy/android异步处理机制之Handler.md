@@ -78,10 +78,10 @@
 	    }
 	```java 	
 
-* looper.loop():
+* looper.loop()
 	> 核心就不断从队列中取出消息,并处理消息, 如果队列中没有消息looper出现阻塞.
 	
-	```java 
+```java 
 
 		public static void loop() {
 	        //.....
@@ -97,10 +97,11 @@
 	            msg.recycleUnchecked();
 	        }
 	    }
-	```
+	```	
+	
 * 将线程变为looper线程, 类似于HandlerThread:
 
-	```java 
+```java 
 
 		public class LooperThread extends Thread {
 		    @Override
@@ -124,13 +125,13 @@
 * 取出功能(next())即链表的删除功能)
 
 
-###主线程的消息循环:
+### 主线程的消息循环:
 Android的主线程就是ActivityThread,入口方法main();通常在新打开一个APK界面时，ActivityManagerService会为该APK启动一个新的新建ActivityThread作为该APK的主线程。该主线程的main函数主要做了两件事：
 
 * 新建ActivityThread对象。 
 * 使用主线程进入消息循环。
 	
-	```java 
+```java 
 
 	public final class ActivityThread {	
 			...
@@ -150,7 +151,7 @@ Android的主线程就是ActivityThread,入口方法main();通常在新打开一
 	```
 * 主线程消息循环后，需要一个Handler和消息队列交互:
 
-	```java 
+```java 
 
 		public final class ActivityThread {
 	
@@ -185,7 +186,7 @@ Android的主线程就是ActivityThread,入口方法main();通常在新打开一
 	```
 * `ActivityThread`通过`ApplicationThread`和AMS进行进程间通讯,AMS以进程间通讯的方法完成ActivityThread的请求后回调ApplicationThread中的Binder方法,然后ApplicationThread会向H发送消息,H收到消息后会将ApplicationThread逻辑切换到ActivityThread中执行,即切换到主线程中执行.
 	
-	```java
+```java
 		public final class ActivityThread {
 		    ...
 		
@@ -228,8 +229,10 @@ Android的主线程就是ActivityThread,入口方法main();通常在新打开一
 		    ...
 		}
 	```
+	
+	
 ### Handler内存泄露:
->This Handler class should be static or leaks might occur 。
+	>This Handler class should be static or leaks might occur 。
 
 * 确保class内部的handler不含有外部类的隐式引用 。 同一个线程下的handler共享一个looper对象，消息中保留了对handler的引用，只要有消息在队列中，那么handler便无法被回收，如果handler不是static那么使用Handler的Service和Activity就也无法被回收。这就可能导致内存泄露。
 * 官方推荐将handler设为static类，并在里面使用弱引用WeakReference
