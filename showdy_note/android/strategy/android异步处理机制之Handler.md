@@ -96,7 +96,7 @@
 	            msg.recycleUnchecked();
 	        }
 	    }
-	```	
+```	
 	
 * 将线程变为looper线程, 类似于HandlerThread:
 
@@ -114,7 +114,7 @@
 		        Looper.loop();
 		    }
 		}
-	```
+```
 
 ### MessageQueue:
 > MessageQueue内部并不是队列,而是通过单链表结构来维护消息列表,单链表在插入和删除上比较有优势.
@@ -147,7 +147,7 @@ Android的主线程就是ActivityThread,入口方法main();通常在新打开一
 			        ...
 		}
 	}
-	```
+```
 * 主线程消息循环后，需要一个Handler和消息队列交互:
 
 ```java 
@@ -182,7 +182,7 @@ Android的主线程就是ActivityThread,入口方法main();通常在新打开一
 		        }
 		    }
 		}
-	```
+```
 * `ActivityThread`通过`ApplicationThread`和AMS进行进程间通讯,AMS以进程间通讯的方法完成ActivityThread的请求后回调ApplicationThread中的Binder方法,然后ApplicationThread会向H发送消息,H收到消息后会将ApplicationThread逻辑切换到ActivityThread中执行,即切换到主线程中执行.
 	
 ```java
@@ -227,7 +227,7 @@ Android的主线程就是ActivityThread,入口方法main();通常在新打开一
 		
 		    ...
 		}
-	```
+```
 	
 	
 ### Handler内存泄露:
