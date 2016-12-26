@@ -27,7 +27,9 @@
 * [自定义View--绘制文本]
 * [自定义View--绘制图片]
 
-
+### Android异步消息篇
+* [Android异步消息处理之Hanlder](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/strategy/android%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6%E4%B9%8BHandler.md)
+* [Android线程及线程池之HandlerThread及IntentService源码分析](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/strategy/Android%E5%BC%82%E6%AD%A5%E6%9C%BA%E5%88%B6%E4%B9%8BHandlerThread%E5%92%8CIntentService%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
 ### Android Drawable篇
 * [ShapeDrawable]
 * [LayerDrawable]
