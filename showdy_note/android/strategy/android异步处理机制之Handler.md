@@ -236,54 +236,36 @@ Android的主线程就是ActivityThread,入口方法main();通常在新打开一
 * 确保class内部的handler不含有外部类的隐式引用 。 同一个线程下的handler共享一个looper对象，消息中保留了对handler的引用，只要有消息在队列中，那么handler便无法被回收，如果handler不是static那么使用Handler的Service和Activity就也无法被回收。这就可能导致内存泄露。
 * 官方推荐将handler设为static类，并在里面使用弱引用WeakReference
 	
-	```java
+```java
 
-		public class F4 extends Fragment {
-		    Button button1;
-		    View view;
-		    public F4() {
-		    }
-		    //静态内部类Handler对象
-		    static class MyHandler extends Handler {
-		        //使用弱引用引用外部类
-		        WeakReference<F4> weakReference;
-		
-		        //通过构造获取实例
-		        public MyHandler(WeakReference<F4> weakReference) {
-		            this.weakReference = weakReference;
-		        }
-		        @Override
-		        public void handleMessage(Message msg) {
-		            //更新主UI组件
-		            //使用弱引用对象的get方法获取外部类对象
-		            F4 temp = weakReference.get();
-		            temp.button1.setText("xxxx");
-		        }
-		    }
-		    //Handler对象实例化
-		    MyHandler handler = new MyHandler(new WeakReference<F4>(this));
-		    //发消息
-		    public void btn1(View view) {
-		        Message message = handler.obtainMessage();
-		        message.sendToTarget();
-		    }
-		
-		    @Override
-		    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-		                             Bundle savedInstanceState) {
-		
-		        if (view == null) {
-		            view = inflater.inflate(R.layout.fragment_f4, container, false);
-		            button1 = (Button) view.findViewById(R.id.button1);
-		            button1.setOnClickListener(new View.OnClickListener() {
-		                @Override
-		                public void onClick(View v) {
-		                    btn1(v);
-		                }
-		            });
-		        }
-		        return view;
-		    }
-		
-		}
-	```
+public static class ServiceHandler extends Handler {
+        WeakReference<BaseServiceActivity> activityRef;
+
+        public ServiceHandler(WeakReference<BaseServiceActivity> activityRef) {
+            this.activityRef = activityRef;
+        }
+
+
+        @Override
+        public void handleMessage(Message msg) {
+
+            Device device = null;
+            switch (msg.what) {
+                case Constant.MSG_NOTIFY_SERVER_CONNECT: //连上服务器
+//                    Toast.makeText(activityRef.get(), "Have connected the socket server!", Toast.LENGTH_SHORT).show();
+                    break;
+                case Constant.MSG_NOTIFY_SERVER_DISCONNECT: //与服务器断开
+//                    Toast.makeText(activityRef.get(), "Have disconnected the socket server!", Toast.LENGTH_SHORT).show();
+                    break;
+                case Command.SMS_REPLY_COMMAND: //GSM回复
+                case Constant.MSG_NOTIFY_DEVICE_REPLY: //GPRS回复
+                    activityRef.get().mHandler.removeMessages(Command.TIME_OUT_CMD);
+                    activityRef.get().performNextActionWithCorrespondingCommand((String) msg.obj);
+                    break;
+                case Constant.MSG_NOTIFY_DEVICE_ONLINE_STATUS:
+                    device = (Device) msg.obj;
+                    activityRef.get().notifyDeviceOnlineStatus(device);
+                    break;
+	}
+}
+```
