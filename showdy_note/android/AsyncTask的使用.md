@@ -1,9 +1,7 @@
-## AsyncTask异步任务的使用
-### AsyncTask实现的原理:
-*　线程池＋handler机制
+## AsyncTask的基本使用
 
 ### AsyncTask使用注意事项:
-* `AsyncTas`k只能被执行(`execute`方法)一次,多次执行将会引发异常.
+* `AsyncTask`只能被执行(`execute`方法)一次,多次执行将会引发异常.
 * 任务的取消只能打了一个标记,并不是真正取消,需要手动去掉用;
 
 ### 构建AsyncTask抽象类的三个泛型参数;
@@ -22,9 +20,9 @@
 	> 任务结束后调用,一般处理返回的结果,或者改变ui显示.
 
 ### 加载网络图片的实例:
-	
-		
-	public class ImageActivity extends Activity {
+
+```java
+    public class ImageActivity extends Activity {
 	    private ImageView imageView ;
 	    private ProgressBar progressBar ;
 	    private static String URL = "http://pic3.zhongsou.com/image/38063b6d7defc892894.jpg";
@@ -85,9 +83,14 @@
 	        }
 	   	}
 	}
+```
 
+  
+    
 ### 模拟加载进度条:
-
+    
+```java
+    
 	public class ProgressActivity extends Activity{
 	    private ProgressBar progressBar;
 	    private MyAsyncTask myAsyncTask;
@@ -140,7 +143,8 @@
 	        }
 	    }
 	}
-
+```
+    
 ------------------------------------------------------------------------
 
 ### AsyncTask的进阶学习:
