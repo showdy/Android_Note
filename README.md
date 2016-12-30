@@ -1,3 +1,5 @@
+[](https://i.kinja-img.com/gawker-media/image/upload/s--fKCSXh1t--/c_scale,fl_progressive,q_80,w_800/gackoyrnmjd2i9mewj1d.jpg)
+
 ## Java
 ### Java高新技术
 * [泛型--GenericType]
