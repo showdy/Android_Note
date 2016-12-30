@@ -1,7 +1,6 @@
 ## 系统相机相册获取图片并裁剪Android N适配
 --
-### 一.基础讲解:
-
+### 启动相机相册裁剪的隐式意图
 调用系统的拍照,相册选取图片并裁剪,一般使用系统的自带隐式意图Intent实现:
 
 * 拍照 `MediaStore.ACTION_IMAGE_CAPTURE`
@@ -480,5 +479,11 @@ content://com.showdy.androiddemo.provider/name/Android/data/com.showdy.androidde
         }
 
 ```
+### 参考资料
 
+* [拍照相册及裁剪的终极实现](http://blog.csdn.net/harvic880925/article/details/43163175)
+* A[ndroid7.0适配心得](http://www.devio.org/2016/09/28/Android7.0%E9%80%82%E9%85%8D%E5%BF%83%E5%BE%97/#在Android7.0上调用系统相机拍照，裁切照片)
+* [android7.0+相机拍照FileUriExposedException](http://www.qingpingshan.com/rjbc/az/182772.html)
+* [Android7.0适配之图片裁剪](http://codecloud.net/24297.html)
+* [file:// scheme is now not allowed to be attached with Intent on targetSdkVersion 24 (Android Nougat). And here is the solution.](https://inthecheesefactory.com/blog/how-to-share-access-to-file-with-fileprovider-on-android-nougat/en)　
 
