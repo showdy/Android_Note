@@ -18,7 +18,7 @@ Toolbar supports a more focused feature set than ActionBar. From start to end, a
 * 若干自定义View
 * ActionMenu
 
-![](img/toolbar.png)
+![](http://img.blog.csdn.net/20161230171131016?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2hvd2R5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 ### Toolbar样式
 
