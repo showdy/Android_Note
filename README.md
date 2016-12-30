@@ -17,9 +17,9 @@
 
 ## Android
 
-### UI控制篇
-* Material Design风格控件:
-  * [Toolbar详解](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/material_design/toolbar%E8%AF%A6%E8%A7%A3.md)
+### UI控件篇
+* [Material Design风格控件]:
+  * [Toolbar详解](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/material_design/toolbar%E8%AF%A6%E8%A7%A3.md)
   
   
 ###  Android自定义View篇
