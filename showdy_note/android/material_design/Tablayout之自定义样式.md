@@ -174,7 +174,7 @@ TabLayout在实际开发中最多的是与ViewPager联合使用,实现TabLayout�
 ```
 ![](http://img.blog.csdn.net/20170103150545158?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2hvd2R5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-但是Tab缺没有显示任何信息,一片空白,从上面提到的TabLayout的系统默认样式中我们发现: `<item name="textAllCaps">true</item>`,这会阻止ImageSpan渲染出来,我们只需要将textAllCaps改为false即可,如下定义,再次运行,成功显示
+但是Tab却没有将Image显示出来,从上面提到的TabLayout的系统默认样式中我们发现: `<item name="textAllCaps">true</item>`,这会阻止ImageSpan渲染出来,我们只需要将textAllCaps改为false即可,如下定义,再次运行,成功显示
 
 ```xml
 
