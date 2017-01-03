@@ -182,7 +182,7 @@ TabLayout在实际开发中最多的是与ViewPager联合使用,实现TabLayout�
         <item name="textAllCaps">false</item>
     </style>
 ```
-![](img/tablayout_vw_icons.png)
+![这里写图片描述](http://img.blog.csdn.net/20170103151136519?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2hvd2R5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 ### 修改Indicator的长度:
 
