@@ -31,7 +31,9 @@ BitmapFactory.Options类是BitmapFactory对图片进行解码时使用的一个�
 
 	* 如果inPreferredConfig不为null，解码器会尝试使用此参数指定的颜色模式来对图片进行解码，如果inPreferredConfig为null或者在解码时无法满足此参数指定的颜色模式，解码器会自动根据**原始图片的特征**以及**当前设备的屏幕位深**，选取合适的颜色模式来解码，例如，如果图片中包含透明度，那么对该图片解码时使用的配置就需要支持透明度，默认会使用ARGB_8888来解码。 
 	* 根据inperferredConfig的解析,就会发现如下bm1,bm2,bm3结果会一样:
+	
 	    ```java
+	    
 			InputStream stream = getAssets().open(file);
 			Options op1 = new Options();
 			op1.inPreferredConfig = Config.ALPHA_8;
