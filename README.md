@@ -22,8 +22,13 @@
 ### UI控件篇
 * [Material Design风格控件]:
   * [Toolbar详解](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/material_design/toolbar%E8%AF%A6%E8%A7%A3.md)
+  * [TabLayout详解](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/material_design/Tablayout%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F.md)
   
-  
+### Android基础:
+* [Activity](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/Android%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E4%B9%8BActivity.md)
+* [Service](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/Android%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6__Service.md)
+* [BroadcastReceiver](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/Android_BroadcastReceiver.md)
+
 ###  Android自定义View篇
 * [自定义View--自定义基础](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/view/%E8%87%AA%E5%AE%9A%E4%B9%89View%E5%9F%BA%E7%A1%80%E7%AF%87.md)
 * [自定义View--View绘制的绘制流程](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/view/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6%E4%B9%8BView%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B.md)
@@ -41,7 +46,7 @@
 * [Android异步处理技术之Hanlder](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/strategy/android%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6%E4%B9%8BHandler.md)
 * [Android异步处理技术之HandlerThread及IntentService源码分析](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/strategy/Android%E5%BC%82%E6%AD%A5%E6%9C%BA%E5%88%B6%E4%B9%8BHandlerThread%E5%92%8CIntentService%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
 * [Android异步处理技术之AsyncQueryHandler]
-* [Android异步处理技术之AsyncTask]
+* [Android异步处理技术之AsyncTask](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/AsyncTask%E4%BD%BF%E7%94%A8%E5%8F%8A%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
 * [Android异步处理技术之Executor Framwork]
 * [Android异步处理技术之Loader]
 
