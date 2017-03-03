@@ -11,6 +11,9 @@
 * [Java8--时间API]
 * [Java8--StreamAPI]
 
+### Java并发
+* [同步工具类之CountDownLatch,Semaphore,Barrier](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Java%E5%B9%B6%E5%8F%91%E4%B9%8B%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E7%B1%BB.md)
+
 ### Java设计模式
 * [观察者模式](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F.md)
 
