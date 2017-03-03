@@ -20,7 +20,7 @@
 ## Android
 
 ### UI控件篇
-* [Material Design风格控件]:
+* Material Design风格控件
   * [Toolbar详解](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/material_design/toolbar%E8%AF%A6%E8%A7%A3.md)
   * [TabLayout详解](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/material_design/Tablayout%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F.md)
   
