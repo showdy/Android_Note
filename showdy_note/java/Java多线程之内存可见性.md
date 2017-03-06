@@ -7,7 +7,7 @@
 
 Java内存模型(Java Memory Model)描述了Java程序中各种变量(线程共享变量)的访问规则,以及在JVM中将变量存储到内存和从内存中读取出变量这样的底层细节.
 
-![](https://www.processon.com/view/link/58bcccdde4b047b78a836f36)
+![](http://img.blog.csdn.net/20170306104808451?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2hvd2R5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
 * 所有变量都存储在主内存中
 
