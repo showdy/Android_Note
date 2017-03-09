@@ -11,6 +11,11 @@
 * [Java8--时间API]
 * [Java8--StreamAPI]
 
+### Java多线程
+* [Java多线程之内存可见性synchronized,volatile](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Java多线程之内存可见性.md)
+* [Java多线程之线程中断interruption协作机制](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B9%8B%E4%B8%AD%E6%96%AD%E7%BA%BF%E7%A8%8B.md)
+
+
 ### Java并发
 * [同步工具类之CountDownLatch,Semaphore,Barrier](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Java%E5%B9%B6%E5%8F%91%E4%B9%8B%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E7%B1%BB.md)
 * [Java并发之线程池(一)之ThreadPoolExecutor](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Java%E5%B9%B6%E5%8F%91%E5%A4%9A%E7%BA%BF%E7%A8%8B(%E4%B8%80)%E4%B9%8BThreadPoolExecutor.md)
