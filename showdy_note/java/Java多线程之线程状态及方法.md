@@ -1,6 +1,6 @@
 ### 线程的生命周期(状态)
 
-![](concurrent/state-machine-example-java-6-thread-states.png)
+![](http://www.uml-diagrams.org/examples/state-machine-example-java-6-thread-states.png)
 
 Java线程运行的生命周期处于图中的6中不同的状态,一个时刻,只能是一种状态:
 
