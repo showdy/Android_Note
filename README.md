@@ -42,6 +42,8 @@
 * [Service](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/Android%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6__Service.md)
 * [BroadcastReceiver](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/Android_BroadcastReceiver.md)
 * [BitmapFactory.Options](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/BitmapFactory_Options.md)
+
+
 ###  Android自定义View篇
 * [自定义View--自定义基础](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/view/%E8%87%AA%E5%AE%9A%E4%B9%89View%E5%9F%BA%E7%A1%80%E7%AF%87.md)
 * [自定义View--View绘制的绘制流程](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/view/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6%E4%B9%8BView%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B.md)
