@@ -14,13 +14,13 @@
 ### Java多线程
 * [Java多线程之内存可见性synchronized,volatile](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Java多线程之内存可见性.md)
 * [Java多线程之线程中断interruption协作机制](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B9%8B%E4%B8%AD%E6%96%AD%E7%BA%BF%E7%A8%8B.md)
-
+* [Java多线程之线程的状态及方法](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B9%8B%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E5%8F%8A%E6%96%B9%E6%B3%95.md)
 
 ### Java并发
 * [同步工具类之CountDownLatch,Semaphore,Barrier](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Java%E5%B9%B6%E5%8F%91%E4%B9%8B%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E7%B1%BB.md)
 * [Java并发之线程池(一)之ThreadPoolExecutor](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Java%E5%B9%B6%E5%8F%91%E5%A4%9A%E7%BA%BF%E7%A8%8B(%E4%B8%80)%E4%B9%8BThreadPoolExecutor.md)
 * [Java并发之线程池(二)之Executors]
-* [Java并发之阻塞队列]
+* [Java并发之阻塞队列](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Java%E5%B9%B6%E5%8F%91%E4%B9%8B%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97.md)
 
 
 
@@ -41,7 +41,7 @@
 * [Activity](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/Android%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E4%B9%8BActivity.md)
 * [Service](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/Android%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6__Service.md)
 * [BroadcastReceiver](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/Android_BroadcastReceiver.md)
-
+* [BitmapFactory.Options](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/BitmapFactory_Options.md)
 ###  Android自定义View篇
 * [自定义View--自定义基础](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/view/%E8%87%AA%E5%AE%9A%E4%B9%89View%E5%9F%BA%E7%A1%80%E7%AF%87.md)
 * [自定义View--View绘制的绘制流程](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/view/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6%E4%B9%8BView%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B.md)
@@ -56,12 +56,13 @@
 
 
 ### Android异步消息篇
-* [Android异步处理技术之Hanlder](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/strategy/android%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6%E4%B9%8BHandler.md)
-* [Android异步处理技术之HandlerThread及IntentService源码分析](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/strategy/Android%E5%BC%82%E6%AD%A5%E6%9C%BA%E5%88%B6%E4%B9%8BHandlerThread%E5%92%8CIntentService%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
-* [Android异步处理技术之AsyncQueryHandler]
-* [Android异步处理技术之AsyncTask](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/AsyncTask%E4%BD%BF%E7%94%A8%E5%8F%8A%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
-* [Android异步处理技术之Executor Framwork]
-* [Android异步处理技术之Loader]
+* [Android异步消息之Hanlder](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/strategy/android%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6%E4%B9%8BHandler.md)
+* [Android异步消息之HandlerThread及IntentService源码分析](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/strategy/Android%E5%BC%82%E6%AD%A5%E6%9C%BA%E5%88%B6%E4%B9%8BHandlerThread%E5%92%8CIntentService%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
+* [Android异步消息之LocalBroadcastManager](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/LocalBroadcastManager%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
+* [Android异步消息之AsyncQueryHandler]
+* [Android异步消息之AsyncTask](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/AsyncTask%E4%BD%BF%E7%94%A8%E5%8F%8A%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
+* [Android异步消息之Executor Framwork]
+* [Android异步消息之Loader]
 
 
 ### Android开发中常用的功能
