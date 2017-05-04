@@ -26,6 +26,7 @@
 
 ### Java设计模式
 * [观察者模式](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F.md)
+* [单例模式](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BSingleton.md)
 
 
 
@@ -71,18 +72,3 @@
 * [Android_APK全量更新策略](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/strategy/apk%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5.md)
 * [拍照,相册及裁剪Android N适配](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/strategy/%E4%BD%BF%E7%94%A8%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%86%8C%E5%9B%BE%E7%89%87%E6%88%96%E6%8B%8D%E7%85%A7%E5%B9%B6%E8%A3%81%E5%89%AA%E4%B9%8BAndroid_N%E9%80%82%E9%85%8D.md)
 
-
-### Android开发之网络篇
-
-
-
-### Android Drawable篇
-* [ShapeDrawable]
-* [LayerDrawable]
-* [StateListDrawable]
-* [LevelListDrawable]
-* [TransitionDrawable]
-* [InsetDrawable]
-* [ScaleDrawable]
-* [ClipDrawable]
-* [自定义Drawable]
