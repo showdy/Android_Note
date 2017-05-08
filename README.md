@@ -1,6 +1,10 @@
 ![](https://i.kinja-img.com/gawker-media/image/upload/s--fKCSXh1t--/c_scale,fl_progressive,q_80,w_800/gackoyrnmjd2i9mewj1d.jpg)
 
 ## Java
+### Java基础
+* [Java之位运算符](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/Java%E4%B9%8B%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6.md)
+
+
 ### Java高新技术
 * [泛型--GenericType]
   * [虚拟机中的泛型信息](https://github.com/showdy/Android_Note/blob/master/showdy_note/java/%E5%8F%8D%E5%B0%84(%E4%BA%8C)%E4%B9%8B%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E6%B3%9B%E5%9E%8B%E7%B1%BB%E5%9E%8B%E4%BF%A1%E6%81%AF.md)
@@ -34,7 +38,7 @@
 ## Android
 
 ### UI控件篇
-* Material Design风格控件
+##### Material Design风格控件
   * [Toolbar](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/material_design/toolbar%E8%AF%A6%E8%A7%A3.md)
   * [TabLayout](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/material_design/Tablayout%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F.md)
   
