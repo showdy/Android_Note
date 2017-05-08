@@ -13,6 +13,9 @@
 ### 使用默认队列Volley.newRequestQueue(this)
 
 #### 使用GET请求:
+
+```java
+
 	final TextView mTextView = (TextView) findViewById(R.id.text);
 	...
 	
@@ -36,10 +39,13 @@
 	});
 	// Add the request to the RequestQueue.
 	queue.add(stringRequest);
+```
+
 #### 使用POST请求:
 * 第一种方法:
+```jva
 
-		StringRequest stringRequest = new StringRequest(Method.POST, url,  listener, errorListener) {  
+		StringRequest stringRequest = new StringRequest(Method.POST, url,  listener, errorListener) {  
 		    @Override  
 		    protected Map<String, String> getParams() throws AuthFailureError {  
 		        Map<String, String> map = new HashMap<String, String>();  
@@ -48,10 +54,12 @@
 		        return map;  
 		    }  
 		};
+```
 
 * 第二种方法:
 
-		
+	```java
+	
 		   String url = "http://m.weather.com.cn/atad/101010100.html";    
 		   RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());    
 		   //封装请求参数    
@@ -76,10 +84,14 @@
 				jsonObjectRequest.setTag("jsonObjectGET");    
 				requestQueue.add(jsonObjectRequest);   
 
+	```
+	
 #### 与Activity生命周期联动,取消请求
 
 * 1.定义tag,绑定请求
 
+	```java
+	
 		public static final String TAG = "MyTag";
 		StringRequest stringRequest; // Assume this exists.
 		RequestQueue mRequestQueue;  // Assume this exists.
@@ -89,8 +101,12 @@
 		
 		// Add the request to the RequestQueue.
 		mRequestQueue.add(stringRequest);
+	```
+	
 
 * 2.与activity联动,在onstop()时,取消请求:
+
+	```java
 
 		protected void onStop () {
 		    super.onStop();
@@ -99,6 +115,8 @@
 		    }
 		}
 
+	```
+	
 ### 自定义RequestQueue
 > 使用Volley.newRequestQueue创建,可以充分利用Volley默认队列的优势.当也可以自定义一个RequestQueue,创建一个单例对象,贯穿整个app生命周期.
 
@@ -110,6 +128,7 @@ RequsetQueue需要network传输request,cache处理caching.
 * DiskBaseCache
 * BaseNetwork--基于HttpClient或者HttpurlConnection
 * api<9 使用HttpClient, api>9后使用HttpUrlConnection
+```java
 
 		HttpStack stack;
 		...
@@ -124,7 +143,11 @@ RequsetQueue需要network传输request,cache处理caching.
 	
 		RequestQueue mRequestQueue;
 
+```
+
 * 自定义一个RequestQueue
+	```java
+
 	
 		// Instantiate the cache
 		Cache cache = new DiskBasedCache(getCacheDir(), 1024 * 1024); // 1MB cap
@@ -158,11 +181,13 @@ RequsetQueue需要network传输request,cache处理caching.
 		// Add the request to the RequestQueue.
 		mRequestQueue.add(stringRequest);
 		...
-		
+	```	
 ### 使用单例模式创建RequestQueue
 * 第一种方式: 使用单例模式创建RequestQueue,提供静态方法,注意要使用Application context,not Activity context,保证生命周期和app一样长.
 * 第二种方式: 创建Application的之类,在onCreate()中初始化,但不推荐.
 * 下面是一段单例提供RequestQueue和ImageLoader相关功能的代码:
+ 
+ ```java
  
 	public class MySingleton {
 	    private static MySingleton mInstance;
@@ -216,7 +241,12 @@ RequsetQueue需要network传输request,cache处理caching.
 	    }
 	}	
 	
+```
+
 * 下面是一段使用单例RequestQueue运用的代码片段:
+
+```java
+
 	// Get a RequestQueue
 	RequestQueue queue = MySingleton.getInstance(this.getApplicationContext()).
 	    getRequestQueue();
@@ -224,7 +254,8 @@ RequsetQueue需要network传输request,cache处理caching.
 	
 	// Add a request (in this example, called stringRequest) to your RequestQueue.
 	MySingleton.getInstance(this).addToRequestQueue(stringRequest);
-	
+```
+
 	
 ### 使用Volley提供的Request类型:
 * StringRequest
@@ -245,6 +276,7 @@ RequsetQueue需要network传输request,cache处理caching.
 
 #### 使用ImageRequest
 * 使用单例模式下RequsetQueue的一段ImageRequset代码:
+```java
 
 		ImageView mImageView;
 		String url = "http://i.imgur.com/7spzG.png";
@@ -266,17 +298,22 @@ RequsetQueue需要network传输request,cache处理caching.
 		    });
 		// Access the RequestQueue through your singleton class.
 		MySingleton.getInstance(this).addToRequestQueue(request);
+```
 
 #### 使用ImageLoader和NetworkImageView
 * 联合使用ImageLoader和NetworkImageView可以有效管理多图片显示,在xml可以类似ImageView布局:
+```mxl
 
-		<com.android.volley.toolbox.NetworkImageView
-        android:id="@+id/networkImageView"
-        android:layout_width="150dp"
-        android:layout_height="170dp"
-        android:layout_centerHorizontal="true" />
+	<com.android.volley.toolbox.NetworkImageView
+		android:id="@+id/networkImageView"
+		android:layout_width="150dp"
+		android:layout_height="170dp"
+		android:layout_centerHorizontal="true" />
+```
+
 
 * 也可以使用ImageLoader加载图片:
+	```java
 	
 		ImageLoader mImageLoader;
 		ImageView mImageView;
@@ -290,9 +327,11 @@ RequsetQueue需要network传输request,cache处理caching.
 		mImageLoader = MySingleton.getInstance(this).getImageLoader();
 		mImageLoader.get(IMAGE_URL, ImageLoader.getImageListener(mImageView,
 		         R.drawable.def_image, R.drawable.err_image));
-
+	```
+	
 * 也可以使用NetworkImageView构建ImageView视图
-
+	```java
+	
 		ImageLoader mImageLoader;
 		NetworkImageView mNetworkImageView;
 		private static final String IMAGE_URL =
@@ -308,11 +347,13 @@ RequsetQueue需要network传输request,cache处理caching.
 		// Set the URL of the image that should be loaded into this view, and
 		// specify the ImageLoader that will be used to make the request.
 		mNetworkImageView.setImageUrl(IMAGE_URL, mImageLoader);
-
+	```
+	
 #### 使用LRU cache
 * Volley实现了标准缓存类DiskBasedCache,该类直接将文件写入到硬盘中
 * 使用ImageLoader,需要实现ImageLoader.ImageCache接口,构建自定义的LRU bitmap cache
 * 下面是LruBitmapCache继承自LruCache,实现了ImageLoader.ImageCache接口.
+	```java
 	
 		public class LruBitmapCache extends LruCache<String, Bitmap>implements ImageCache {
 		
@@ -351,20 +392,23 @@ RequsetQueue需要network传输request,cache处理caching.
 		        return screenBytes * 3;
 		    }
 		}
-
+	```
+	
 * 下面展示使用LruBitmapCache实例化ImageLoader
-
+	```java
+	
 		RequestQueue mRequestQueue; // assume this exists.
 		ImageLoader mImageLoader = new ImageLoader(mRequestQueue, new LruBitmapCache(
 		            LruBitmapCache.getCacheSize()));
 			
-
+	```
 #### Requset Json
 * Volley提供了两个类做Json Request,此二者都是继承JsonRequest:
 	* JsonArrayRequest
 	* JsonObjectRequest
 
 * 下面一段如何使用的例子:
+```java
 
 		TextView mTxtDisplay;
 		ImageView mImageView;
@@ -390,7 +434,7 @@ RequsetQueue需要network传输request,cache处理caching.
 		// Access the RequestQueue through your singleton class.
 		MySingleton.getInstance(this).addToRequestQueue(jsObjRequest);
 		For an example of implementing a custom JSON request based on Gson, see the next lesson, Implementing a Custom Request.
-
+```
 ### 实现自定义请求(Custom Requset)
 
 * reponse如果不是json,String,image,则需要自定义Requset:
@@ -399,6 +443,7 @@ RequsetQueue需要network传输request,cache处理caching.
 	
 #### parseNetworkResponse
 *　属于Response对象,但是封装了resposne的解析,下面是一个parseNetWorkResponse();
+```java
 
 		@Override
 		protected Response<T> parseNetworkResponse(
@@ -412,6 +457,8 @@ RequsetQueue需要network传输request,cache处理caching.
 		    // handle errors
 		...
 		}
+```
+
 * parseNetworkResponse()其中参数为NetworkResponse,包含 a byte[], HTTP status code, and response headers
 * 返回值必须为Response<T>,其中包含response对象,cache metadata,or an error.
 * 如果协议没有标准的cache semantics,必须要构建Cache.Entry,但多数请求如下定义:
@@ -422,12 +469,13 @@ RequsetQueue需要network传输request,cache处理caching.
 
 #### deliverResponse
 * 在主线程会回调返回调用parseNetworkResponse()后的结果,多数回调接口如下:
-	
+	```java
 		protected void deliverResponse(T response) {
         	listener.onResponse(response);
+	```
 	
 #### GsonRequest例子
-
+```java
 		public class GsonRequest<T> extends Request<T> {
 		    private final Gson gson = new Gson();
 		    private final Class<T> clazz;
@@ -475,3 +523,4 @@ RequsetQueue需要network传输request,cache处理caching.
 		        }
 		    }
 		}
+```
