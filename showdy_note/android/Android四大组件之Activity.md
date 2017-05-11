@@ -97,7 +97,7 @@
 
 #### 启动模式应用场景:
 
-* 假如目前有2个任务栈,前台任务栈有12,而后台任务栈有XY,假设CD的启动模式均为singleTask,那么启动Y时,整个后台任务栈都会被切换到前台,这时后退列表就变为12XY,当点击back键时,列表中Activity会一一出栈.
+* 假如目前有2个任务栈,前台任务栈有12,而后台任务栈有XY,假设XY的启动模式均为singleTask,那么启动Y时,整个后台任务栈都会被切换到前台,这时后退列表就变为12XY,当点击back键时,列表中Activity会一一出栈.
 	
 ![这里写图片描述](http://img.blog.csdn.net/20170207161258425?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc2hvd2R5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
