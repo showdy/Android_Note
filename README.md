@@ -63,6 +63,7 @@
 
 ### Android异步消息篇
 * [Android异步消息之Hanlder](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/strategy/android%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6%E4%B9%8BHandler.md)
+* [撸一个自己的Handler异步消息机制](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/%E6%92%B8%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84Handler%E5%BC%82%E6%AD%A5%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6.md)
 * [Android异步消息之HandlerThread及IntentService源码分析](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/strategy/Android%E5%BC%82%E6%AD%A5%E6%9C%BA%E5%88%B6%E4%B9%8BHandlerThread%E5%92%8CIntentService%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
 * [Android异步消息之LocalBroadcastManager](https://github.com/showdy/Android_Note/blob/master/showdy_note/android/LocalBroadcastManager%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.md)
 * [Android异步消息之AsyncQueryHandler]
