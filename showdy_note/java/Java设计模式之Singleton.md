@@ -18,6 +18,75 @@
 
 #### 懒汉式单例
 
+单线程的懒汉式单例:
+
+```java
+
+	public class Singleton {
+	
+	    private static Singleton sInstance;
+	
+	    private Singleton() {
+	    }
+	
+	    public Singleton getInstance() {
+	        if (sInstance == null) {
+	              sInstance = new Singleton();
+	         } 
+	        return sInstance;
+	    }
+	}
+
+```
+这种最简单的懒汉式单例只有在单线程中才有作用, 如果在多线程中由于多线程执行的问题的会因为线程并发的问题产生多个实例.所以我们需要同步即:
+
+```java
+
+	public class Singleton {
+	
+	    private static  Singleton sInstance;
+	
+	    private Singleton() {
+	    }
+	
+	    public Singleton getInstance() {
+	        if (sInstance == null) {
+	            synchronized (Singleton.class) {      
+	                    sInstance = new Singleton();
+	            }
+	        }
+	        return sInstance;
+	    }
+	}
+
+```
+但这种线程同步还是不能做到线程安全的问题, 还是会产生多个实例对象, 所以我们再一次进行判断nul:
+
+```java
+
+	public class Singleton {
+	
+	    private static  Singleton sInstance;
+	
+	    private Singleton() {
+	    }
+	
+	    public Singleton getInstance() {
+	        if (sInstance == null) {
+	            synchronized (Singleton.class) {
+	                if (sInstance == null) {
+	                    sInstance = new Singleton();
+	                }
+	            }
+	        }
+	        return sInstance;
+	    }
+	}
+
+```
+
+这种双重判断DCL单例在JDK小于1.5时还是会为因为构造对象出现指令重排序的问题, 故而给单例对象添加volatile关键字修饰, 禁止指令重排序; 所以最终版为:
+
 ```java
 
 	public class Singleton {
