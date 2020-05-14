@@ -1,2 +1,2 @@
-include ':app', ':JiaguPlugin', ':intecerptdemo', ':hotfix', ':vpExt'
+include ':app', ':JiaguPlugin', ':intecerptdemo', ':hotfix', ':vpExt', ':dagger2demo'
 rootProject.name='LearnAndroid'

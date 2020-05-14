@@ -3,11 +3,19 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <compositeConfiguration>
-          <compositeBuild compositeDefinitionSource="SCRIPT" />
-        </compositeConfiguration>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/JiaguPlugin" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/dagger2demo" />
+            <option value="$PROJECT_DIR$/hotfix" />
+            <option value="$PROJECT_DIR$/intecerptdemo" />
+            <option value="$PROJECT_DIR$/vpExt" />
+          </set>
+        </option>
         <option name="resolveModulePerSourceSet" value="false" />
         <option name="testRunner" value="PLATFORM" />
       </GradleProjectSettings>
