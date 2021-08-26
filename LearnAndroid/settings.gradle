@@ -1,2 +1,4 @@
-include ':app', ':JiaguPlugin', ':intecerptdemo', ':hotfix', ':vpExt', ':dagger2demo'
-rootProject.name='LearnAndroid'
+include ':design'
+include ':rxjava'
+include ':compat'
+rootProject.name = "LearnAndroid"

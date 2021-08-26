@@ -1,0 +1,22 @@
+1. 通知：安卓8.0中，为了更好的管制通知的提醒，不想一些不重要的通知打扰用户，新增了通知渠道，用户可以根据渠道来屏蔽一些不想要的通知
+2. 安装apk： 安装apk权限：<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+3. SecurityException的闪退： 项目使用了ActiveAndroid，在 8.0 或 8.1 系统上使用 26 或以上的版本的 SDK 时，
+   调用 ContentResolver 的 notifyChange 方法通知数据更新，或者调用 ContentResolver 的 registerContentObserver
+   方法监听数据变化时，会出现上述异常。
+   解决办法：
+      <provider
+       android:name="com.activeandroid.content.ContentProvider"
+       android:authorities="com.ylmf.androidclient"
+       android:enabled="true"
+       android:exported="false">
+      </provider>
+
+ 4.静态广播: Android 8.0 引入了新的广播接收器限制，因此您应该移除所有为隐式广播 Intent 注册的广播接收器
+   解决方案：使用动态广播代替静态广播
+
+ 5. Android 8.0 非全屏透明页面不允许设置方向( java.lang.IllegalStateException: Only fullscreen opaque activities can request orientation)
+    解决方案：
+    （1）android:windowIsTranslucent设置为false
+    （2）如果还是想用的话，就去掉清单文件中Activity中android:screenOrientation="portrait"
+
+ 6.

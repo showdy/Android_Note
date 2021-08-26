@@ -1,0 +1,75 @@
+import com.showdy.learnandroid.*
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion BuildConfig.compileSdkVersion
+    buildToolsVersion BuildConfig.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.showdy.intercepotr"
+        minSdkVersion BuildConfig.minSdkVersion
+        targetSdkVersion BuildConfig.targetSdkVersion
+        versionCode BuildConfig.versionCode
+        versionName BuildConfig.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation Kotlin.stdlibJdk8
+    implementation Kotlin.allopen
+    implementation Kotlin.coroutinesCore
+    implementation Kotlin.coroutinesAndroid
+    implementation Kotlin.reflect
+    implementation AndroidX.coreKtx
+    implementation Google.material
+    implementation Activity.activity
+    implementation Activity.activityktx
+    implementation Fragment.runtime
+    implementation Fragment.runtimeKtx
+    implementation AndroidX.constraintlayout
+    implementation AndroidX.appcompat
+    implementation Lifecycel.lifecylce_runtime
+    implementation Lifecycel.lifecylce_runtime_ktx
+    implementation Lifecycel.lifecycle_service
+    implementation Lifecycel.lifecycle_process
+    implementation Lifecycel.lifecycle_common_java8
+    implementation Lifecycel.livedata
+    implementation Lifecycel.livedata_ktx
+    implementation Lifecycel.viewmodel
+    implementation Lifecycel.viewmodel_ktx
+    implementation Lifecycel.savestate
+    implementation RxJava.rx_android
+    implementation RxJava.rxjava2
+    kapt Lifecycel.lifeycel_compiler
+
+    implementation Third.perrmissionx
+    implementation Third.zxing
+
+    testImplementation TestDeps.junit
+    androidTestImplementation TestDeps.ext_junit
+    androidTestImplementation TestDeps.espresso
+}
